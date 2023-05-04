@@ -1,4 +1,7 @@
 # bot_type
+
+GPTERTIO = "GPTtertio"
+
 OPEN_AI = "openAI"
 CHATGPT = "chatGPT"
 BAIDU = "baidu"

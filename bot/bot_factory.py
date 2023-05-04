@@ -33,4 +33,11 @@ def create_bot(bot_type):
         from bot.chatgpt.chat_gpt_bot import AzureChatGPTBot
 
         return AzureChatGPTBot()
+    
+    elif bot_type == const.GPTERTIO:
+        # my GPTertio
+        from bot.gptertio.gptertio_bot import GPTertioBot
+
+        return GPTertioBot()
+
     raise RuntimeError
