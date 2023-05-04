@@ -41,6 +41,8 @@ def handler_single_msg(msg):
 def handler_group_msg(msg):
     try:
         cmsg = WechatMessage(msg, True)
+        logger.info("[WX]group message {} received".format(cmsg.content))
+#       logger.debug("[WX]group message {} received".format(cmsg.content))
     except NotImplementedError as e:
         logger.debug("[WX]group message {} skipped: {}".format(msg["MsgId"], e))
         return None
@@ -168,7 +170,7 @@ class WechatChannel(ChatChannel):
         elif cmsg.ctype in [ContextType.JOIN_GROUP, ContextType.PATPAT]:
             logger.debug("[WX]receive note msg: {}".format(cmsg.content))
         elif cmsg.ctype == ContextType.TEXT:
-            # logger.debug("[WX]receive group msg: {}, cmsg={}".format(json.dumps(cmsg._rawmsg, ensure_ascii=False), cmsg))
+            # logger.debug([WX]receive group msg: {}, cmsg={}".format(json.dumps(cmsg._rawmsg, ensure_ascii=False), cmsg))
             pass
         else:
             logger.debug("[WX]receive group msg: {}".format(cmsg.content))
